@@ -1,3 +1,27 @@
-.hello {
-  color: red;
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.navbar-list{
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+.navbar-list li{
+  padding: 50px;
+}
+.active{
+  text-decoration: underline;
+  font-weight: bold;
+}
+#logo{
+  background-image: url('img/download.jpeg');
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  border-radius: 50px;
 }
