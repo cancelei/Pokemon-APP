@@ -31,17 +31,17 @@ export function createCard(index) {
   likeButtonCounter.textContent = '(Like Counter)';
   cardInfo.appendChild(likeButtonCounter);
 
-  let modal = document.querySelector("#myModal");
+  const modal = document.querySelector('#myModal');
 
   const commentButton = document.createElement('button');
-  commentButton.classList.add('commentbutton') ;
-  commentButton.classList.add('btn') ;
+  commentButton.classList.add('commentbutton');
+  commentButton.classList.add('btn');
   commentButton.classList.add('myBtn');
   commentButton.setAttribute('id', `${index}`);
-  commentButton.addEventListener('click',function(element){
-    modal.style.display = "block";
+  commentButton.addEventListener('click', () => {
+    modal.style.display = 'block';
     diplayCard(index);
-  })
+  });
   commentButton.textContent = 'Comment';
   cardInfo.appendChild(commentButton);
 
