@@ -1,10 +1,12 @@
 import './style.css';
 import { createCard, populateCard } from './cardUtils.js';
+import { updateitemscount } from './homepagecounter.js';
 
 const main = document.querySelector('.main');
 const fetchPromises = [];
+const MAXCARDS = 9;
 
-for (let i = 1; i <= 6; i += 1) {
+for (let i = 1; i <= MAXCARDS; i += 1) {
   const newCard = createCard();
   main.appendChild(newCard);
 
@@ -12,6 +14,7 @@ for (let i = 1; i <= 6; i += 1) {
     .then((response) => response.json())
     .then((data) => {
       populateCard(newCard, data);
+      updateitemscount();
     });
 
   fetchPromises.push(fetchPromise);
