@@ -1,3 +1,27 @@
+// ----- get Comments from api -----
+export function diplayComments() {
+  console.log('displayComments');
+  const form = document.querySelector('.form');
+  const itemId = form.id;
+  const commentList = document.querySelector('.comment-list');
+
+  const involvementApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eT8XH25HH0nbRLIKTkDi';
+  console.log(itemId);
+  fetch(`${involvementApiUrl}/comments?item_id=${itemId}`)
+    .then((response) => (response.json()))
+    .then((data) => {
+      data.forEach((element) => {
+        const userComment = document.createElement('p');
+        userComment.innerHTML = `${element.creation_date}  ${element.username}: ${element.comment}`;
+        commentList.appendChild(userComment);
+      });
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
 // -------- function to set the Details of each card popup --------
 function setPopupDetails(data) {
   const img = document.querySelector('.pakanon-img');
@@ -12,10 +36,13 @@ function setPopupDetails(data) {
   Length.textContent = data.stats.length;
   title.innerHTML = cardTitleUpperCase;
   img.src = data.sprites.front_default;
+  diplayComments();
 }
 
 // function to get data with an specific id
 export default function diplayCard(index) {
+  const form = document.querySelector('.form');
+  form.setAttribute('id', `${index}`);
   const id = index;
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
   fetch(url)
@@ -55,15 +82,15 @@ Popup.innerHTML = `
           <h2>Comments (2)</h2>
         </div>
         <div class="modal-item">
-          <p class="comments"><span>2000/04/09</span> <B>Alex</B>: <i>Alex's comments</i></p>
+          <div class='comment-list'></div>
         </div>
       </div>
       <div >
-        <form action="" >
+        <form action="" class="form" >
           <fieldset class="add-cooment-form">
             <legend>Add Comment</legend>
-            <input type="text" placeholder="Your Name">
-            <textarea name="" id="" cols="5" rows="5" placeholder="Your insight"></textarea>
+            <input type="text" placeholder="Your Name" class="user" required>
+            <textarea  cols="5" rows="5" placeholder="Your insight" class='userComment' required></textarea>
             <input type="submit" value="Comment" class="btn-comment">
           </fieldset>
         </form>
@@ -82,11 +109,15 @@ const span = document.getElementsByClassName('close')[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
   modal.style.display = 'none';
+  const commentList = document.querySelector('.comment-list');
+  commentList.innerHTML = '';
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target === modal) {
     modal.style.display = 'none';
+    const commentList = document.querySelector('.comment-list');
+    commentList.innerHTML = '';
   }
 };
