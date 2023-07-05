@@ -1,4 +1,5 @@
-import diplayCard from './popup';
+import diplayCard from './popup.js';
+import newLike from './homepagecounter.js';
 
 export function createCard(index) {
   const card = document.createElement('div');
@@ -24,6 +25,9 @@ export function createCard(index) {
 
   const likeButton = document.createElement('p');
   likeButton.className = 'likebutton';
+  likeButton.addEventListener('click', () => {
+    newLike(index);
+  });
   titleParent.appendChild(likeButton);
 
   const likeButtonCounter = document.createElement('p');

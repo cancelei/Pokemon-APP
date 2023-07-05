@@ -1,7 +1,7 @@
 import './style.css';
 import { createCard, populateCard } from './cardUtils.js';
 import { updateitemscount } from './homepagecounter.js';
-import './popup';
+import './popup.js';
 
 const main = document.querySelector('.main');
 const fetchPromises = [];
