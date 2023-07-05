@@ -7,7 +7,6 @@ const main = document.querySelector('.main');
 const fetchPromises = [];
 const MAXCARDS = 9;
 
-
 for (let i = 1; i <= MAXCARDS; i += 1) {
   const newCard = createCard(i);
   main.appendChild(newCard);
