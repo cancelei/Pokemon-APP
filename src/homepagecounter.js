@@ -6,13 +6,5 @@ export function updateitemscount() {
 }
 
 export function likecount() {
-  // const likebutton = document.querySelectorAll('.likebutton');
-  // const likebuttoncounter = document.querySelectorAll('.likebuttoncounter');
-
-  // likebutton.forEach((button) => {
-  //   button.addEventListener('click', () => {
-  //     const likebuttoncounter = button.nextElementSibling;
-  //     likebuttoncounter.innerHTML = 'Liked';
-  //   });
-  // });
+  const u = null;
 }
