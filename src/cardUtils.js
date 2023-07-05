@@ -1,4 +1,5 @@
 import diplayCard from './popup';
+// import {diplayComments} from './popup';
 
 export function createCard(index) {
   const card = document.createElement('div');
