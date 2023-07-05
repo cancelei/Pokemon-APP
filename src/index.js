@@ -1,13 +1,15 @@
 import './style.css';
 import { createCard, populateCard } from './cardUtils.js';
 import { updateitemscount } from './homepagecounter.js';
+import './popup';
 
 const main = document.querySelector('.main');
 const fetchPromises = [];
 const MAXCARDS = 9;
 
+
 for (let i = 1; i <= MAXCARDS; i += 1) {
-  const newCard = createCard();
+  const newCard = createCard(i);
   main.appendChild(newCard);
 
   const fetchPromise = fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
