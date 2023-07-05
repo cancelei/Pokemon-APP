@@ -22,14 +22,3 @@ for (let i = 1; i <= MAXCARDS; i += 1) {
 
 Promise.all(fetchPromises)
   .then(() => {});
-
-// function populateCard(card, data) {
-//   const nameElement = card.querySelector('.cardtitle');
-//   const imageElement = card.querySelector('.pokeimg');
-
-//   const capitalizedFirstLetter = data.name.charAt(0).toUpperCase();
-//   const modifiedName = capitalizedFirstLetter + data.name.slice(1);
-
-//   nameElement.textContent = modifiedName;
-//   imageElement.src = data.sprites.front_default;
-// }
