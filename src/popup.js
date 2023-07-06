@@ -1,12 +1,10 @@
 // ----- get Comments from api -----
 export async function diplayComments() {
-  console.log('displayComments');
   const form = document.querySelector('.form');
   const itemId = form.id;
   const commentList = document.querySelector('.comment-list');
 
   const involvementApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eT8XH25HH0nbRLIKTkDi';
-  console.log(itemId);
   await fetch(`${involvementApiUrl}/comments?item_id=${itemId}`)
     .then((response) => (response.json()))
     .then((data) => {
@@ -123,7 +121,6 @@ window.onclick = function (event) {
 };
 // --- add a new comment ---
 const sendComment = async (id, user, comment) => {
-  console.log('sendComment running');
   const involvementApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eT8XH25HH0nbRLIKTkDi';
   const myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
@@ -143,7 +140,6 @@ const sendComment = async (id, user, comment) => {
 };
 // get the form data
 const getFormData = async () => {
-  console.log('getformData funtion');
   const userInput = document.querySelector('.user');
   const userComments = document.querySelector('.userComment');
   const form = document.querySelector('.form');
@@ -154,6 +150,8 @@ const getFormData = async () => {
   userInput.value = '';
   userComments.value = '';
   modal.style.display = 'none';
+  const commentList = document.querySelector('.comment-list');
+  commentList.innerHTML = '';
 };
 
 const form = document.querySelector('.form');

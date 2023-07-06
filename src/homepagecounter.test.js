@@ -1,4 +1,4 @@
-const { updateitemscount } = require('./homepagecounter.js');
+const updateitemscount = require('./homepagecounter.js');
 
 describe('updateitemscount', () => {
   beforeEach(() => {
