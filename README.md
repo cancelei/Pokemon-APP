@@ -67,7 +67,7 @@ The JavaScript Capstone project at Microverse is an opportunity for students to 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Live Demo <a name="live-demo" href="https://cancelei.github.io/JS-capstone-M2/dist/index.html"></a>
+## 🚀 <a  name="live-demo" href="https://cancelei.github.io/JS-capstone-M2/dist/index.html">Live Demo</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
