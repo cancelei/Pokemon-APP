@@ -4,7 +4,3 @@ export function updateitemscount() {
   const navli = document.getElementById('counter');
   navli.innerHTML = `Spaceships ( ${counter.length} )`;
 }
-
-export function likecount() {
-  const u = null;
-}

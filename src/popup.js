@@ -1,5 +1,5 @@
 // ----- get Comments from api -----
-export function diplayComments() {
+export async function diplayComments() {
   console.log('displayComments');
   const form = document.querySelector('.form');
   const itemId = form.id;
@@ -7,7 +7,7 @@ export function diplayComments() {
 
   const involvementApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eT8XH25HH0nbRLIKTkDi';
   console.log(itemId);
-  fetch(`${involvementApiUrl}/comments?item_id=${itemId}`)
+  await fetch(`${involvementApiUrl}/comments?item_id=${itemId}`)
     .then((response) => (response.json()))
     .then((data) => {
       data.forEach((element) => {
@@ -122,40 +122,43 @@ window.onclick = function (event) {
   }
 };
 // --- add a new comment ---
-const sendComment = async (id,user,comment) => {
-  
-  console.log("sendComment running");
-  const involvementApiUrl =
-    "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eT8XH25HH0nbRLIKTkDi";
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    const raw = JSON.stringify({
-      item_id: id,
-      username: user,
-      comment: comment
-    });
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-    fetch(`${involvementApiUrl}/comments`,
-      requestOptions
-    )
+const sendComment = async (id, user, comment) => {
+  console.log('sendComment running');
+  const involvementApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eT8XH25HH0nbRLIKTkDi';
+  const myHeaders = new Headers();
+  myHeaders.append('Content-Type', 'application/json');
+  const raw = JSON.stringify({
+    item_id: id,
+    username: user,
+    comment,
+  });
+  const requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow',
+  };
+  fetch(`${involvementApiUrl}/comments`,
+    requestOptions);
 };
 // get the form data
 const getFormData = async () => {
-  console.log('getformData funtion')
-  const userInput = document.querySelector(".user");
-  const userComments = document.querySelector(".userComment");
-  const form = document.querySelector(".form");
+  console.log('getformData funtion');
+  const userInput = document.querySelector('.user');
+  const userComments = document.querySelector('.userComment');
+  const form = document.querySelector('.form');
   const user = userInput.value;
   const comment = userComments.value;
   const itemId = form.id;
-  await sendComment(itemId,user,comment);
-  }
+  await sendComment(itemId, user, comment);
+  userInput.value = '';
+  userComments.value = '';
+  modal.style.display = 'none';
+};
 
-const btnComment = document.querySelector(".btn-comment");
-btnComment.addEventListener("click", getFormData);
-// sendComment('7','Ali','Hello');
+const form = document.querySelector('.form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent form submission
+
+  getFormData();
+});
