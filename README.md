@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>Project Name</b></h3>
+  <h3><b>JavaScript Capstone Project</b></h3>
 
 </div>
 
@@ -27,10 +27,8 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 Project Name<a name="about-project"></a>
-
-
-Add description long.
+# 📖 JavaScript Capstone<a name="about-project"></a>
+The JavaScript Capstone project at Microverse is an opportunity for students to showcase their skills in building a full-stack web application. Students work in teams to develop a project from scratch, using technologies such as Html,Css,JavaScript at the end of second Module. The project involves designing and implementing a user interface, using a RESTful API. The Capstone project is a challenging and rewarding experience that prepares students for real-world software development.
 
 ## 🛠 Built With Love and Passion<a name="built-with"></a>
 
@@ -40,6 +38,9 @@ Add description long.
   <summary>Client</summary>
   <ul>
     <li><a href="https://html.com/">HTML</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/javascript">JavaScript</a></li>
+
   </ul>
 </details>
 
@@ -59,12 +60,14 @@ Add description long.
 
 ### Key Features <a name="key-features"></a>
 
-add key 1
-add key 2
+- Unit Testing
+- Html and Css best paractice
+- JavaScript best paractice
+- Using gitflow and GitHub flow
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## 🚀 Live Demo <a name="live-demo">https://cancelei.github.io/JS-capstone-M2/dist/index.html</a>
 
 - <a href="https://cancelei.github.io/Capstone-M1-Event-Page/dist/index.html">Link</a>
 
@@ -126,14 +129,20 @@ N/A
 - GitHub: [@cancelei](https://github.com/cancelei)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/gbannwart)
 
+👤 **Author Amir Hussain Habibi**
+
+- GitHub: [@cancelei](https://github.com/Salarhabibi-amir)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/amir-hussain-habibi-153688185/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-add item 1
-add item 2
+- Use Linters
+- Use Webpack
+- Use Gitflow
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -150,10 +159,7 @@ N/A
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-Original design idea by Cindy Shin in Behance.<a href="https://www.behance.net/gallery/29845175/CC-Global-Summit-2015.">BEHANCE</a>
-
-Icons by Surang (<a href="https://www.flaticon.com/br/icones-gratis/agricultura-e-jardinagem" title="agricultura e jardinagem ícones">Agricultura e jardinagem ícones criados por surang - Flaticon</a>)
-
+We are gratefull of Microvers stuff and founder for creating such an amazing envirnment that we can work and learn.
 
 ## 📝 License <a name="license"></a>
 
