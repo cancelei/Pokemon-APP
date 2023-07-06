@@ -32,7 +32,6 @@ export function createCard(index) {
 
   const likeButtonCounter = document.createElement('p');
   likeButtonCounter.className = 'likebuttoncounter';
-  likeButtonCounter.textContent = '(Like Counter)';
   cardInfo.appendChild(likeButtonCounter);
 
   const modal = document.querySelector('#myModal');
