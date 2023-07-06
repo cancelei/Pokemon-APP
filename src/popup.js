@@ -1,9 +1,10 @@
+import countComments from './commentCounter';
 // ----- get Comments from api -----
 export async function diplayComments() {
   const form = document.querySelector('.form');
   const itemId = form.id;
   const commentList = document.querySelector('.comment-list');
-
+  let commentCounter = 0;
   const involvementApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eT8XH25HH0nbRLIKTkDi';
   await fetch(`${involvementApiUrl}/comments?item_id=${itemId}`)
     .then((response) => (response.json()))
@@ -12,7 +13,10 @@ export async function diplayComments() {
         const userComment = document.createElement('p');
         userComment.innerHTML = `${element.creation_date}  ${element.username}: ${element.comment}`;
         commentList.appendChild(userComment);
+        commentCounter += 1;
       });
+
+      countComments(commentCounter);
       console.log(data);
     })
     .catch((error) => {
@@ -77,7 +81,7 @@ Popup.innerHTML = `
           <p>Weight: <span class="weight"></span></p>
         </div>
         <div class="modal-item">
-          <h2>Comments (2)</h2>
+          <h2>Comments (<span class='counter'></span>)</h2>
         </div>
         <div class="modal-item">
           <div class='comment-list'></div>
@@ -109,6 +113,7 @@ span.onclick = function () {
   modal.style.display = 'none';
   const commentList = document.querySelector('.comment-list');
   commentList.innerHTML = '';
+  countComments('0');
 };
 
 // When the user clicks anywhere outside of the modal, close it
@@ -117,6 +122,7 @@ window.onclick = function (event) {
     modal.style.display = 'none';
     const commentList = document.querySelector('.comment-list');
     commentList.innerHTML = '';
+    countComments('0');
   }
 };
 // --- add a new comment ---
