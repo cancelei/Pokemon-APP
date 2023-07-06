@@ -1,4 +1,4 @@
-const updateitemscount = require('./homepagecounter.js');
+import { updateitemscount } from './homepagecounter.js';
 
 describe('updateitemscount', () => {
   beforeEach(() => {
@@ -24,6 +24,6 @@ describe('updateitemscount', () => {
     updateitemscount();
 
     expect(mockGetElementById).toHaveBeenCalledWith('counter');
-    expect(counterElement.innerHTML).toBe('Spaceships ( 3 )');
+    expect(counterElement.innerHTML).toBe('Pokémon ( 3 )');
   });
 });
