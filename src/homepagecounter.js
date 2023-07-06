@@ -1,7 +1,8 @@
-export function updateitemscount() {
+export default function updateitemscount() {
   const counter = document.body.querySelectorAll('.card');
 
   const navli = document.getElementById('counter');
+
   navli.innerHTML = `Pokémon ( ${counter.length} )`;
 }
 
@@ -59,3 +60,4 @@ export async function LikeCounter(index) {
     console.error('Error:', error);
   }
 }
+

@@ -1,14 +1,12 @@
 import countComments from './commentCounter';
 // ----- get Comments from api -----
-export function diplayComments() {
-  console.log('displayComments');
+export async function diplayComments() {
   const form = document.querySelector('.form');
   const itemId = form.id;
   const commentList = document.querySelector('.comment-list');
   let commentCounter = 0;
   const involvementApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eT8XH25HH0nbRLIKTkDi';
-  console.log(itemId);
-  fetch(`${involvementApiUrl}/comments?item_id=${itemId}`)
+  await fetch(`${involvementApiUrl}/comments?item_id=${itemId}`)
     .then((response) => (response.json()))
     .then((data) => {
       data.forEach((element) => {
@@ -127,3 +125,44 @@ window.onclick = function (event) {
     countComments('0');
   }
 };
+// --- add a new comment ---
+const sendComment = async (id, user, comment) => {
+  const involvementApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eT8XH25HH0nbRLIKTkDi';
+  const myHeaders = new Headers();
+  myHeaders.append('Content-Type', 'application/json');
+  const raw = JSON.stringify({
+    item_id: id,
+    username: user,
+    comment,
+  });
+  const requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow',
+  };
+  fetch(`${involvementApiUrl}/comments`,
+    requestOptions);
+};
+// get the form data
+const getFormData = async () => {
+  const userInput = document.querySelector('.user');
+  const userComments = document.querySelector('.userComment');
+  const form = document.querySelector('.form');
+  const user = userInput.value;
+  const comment = userComments.value;
+  const itemId = form.id;
+  await sendComment(itemId, user, comment);
+  userInput.value = '';
+  userComments.value = '';
+  modal.style.display = 'none';
+  const commentList = document.querySelector('.comment-list');
+  commentList.innerHTML = '';
+};
+
+const form = document.querySelector('.form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent form submission
+
+  getFormData();
+});
