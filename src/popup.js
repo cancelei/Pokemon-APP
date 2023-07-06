@@ -1,4 +1,4 @@
-import {countComments} from './commentCounter';
+import countComments from './commentCounter';
 // ----- get Comments from api -----
 export function diplayComments() {
   console.log('displayComments');
@@ -116,7 +116,6 @@ span.onclick = function () {
   const commentList = document.querySelector('.comment-list');
   commentList.innerHTML = '';
   countComments('0');
-
 };
 
 // When the user clicks anywhere outside of the modal, close it

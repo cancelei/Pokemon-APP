@@ -1,4 +1,4 @@
-const { countComments} = require('./commentCounter.js');
+const { countComments } = require('./commentCounter.js');
 
 describe('countComments', () => {
   test('it should update the comment counter with the provided count', () => {
