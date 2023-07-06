@@ -123,6 +123,7 @@ window.onclick = function (event) {
 };
 // --- add a new comment ---
 const sendComment = async (id,user,comment) => {
+  
   console.log("sendComment running");
   const involvementApiUrl =
     "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eT8XH25HH0nbRLIKTkDi";
@@ -144,7 +145,7 @@ const sendComment = async (id,user,comment) => {
     )
 };
 // get the form data
-const getFormData =()=>{
+const getFormData = async () => {
   console.log('getformData funtion')
   const userInput = document.querySelector(".user");
   const userComments = document.querySelector(".userComment");
@@ -152,8 +153,9 @@ const getFormData =()=>{
   const user = userInput.value;
   const comment = userComments.value;
   const itemId = form.id;
-  sendComment(itemId,user,comment);
+  await sendComment(itemId,user,comment);
   }
+
 const btnComment = document.querySelector(".btn-comment");
 btnComment.addEventListener("click", getFormData);
 // sendComment('7','Ali','Hello');
