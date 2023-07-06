@@ -6,5 +6,5 @@ export function updateitemscount() {
 }
 
 export function likecount() {
-  const u = null;
+  // const u = null;
 }
