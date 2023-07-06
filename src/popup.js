@@ -121,3 +121,39 @@ window.onclick = function (event) {
     commentList.innerHTML = '';
   }
 };
+// --- add a new comment ---
+const sendComment = async (id,user,comment) => {
+  console.log("sendComment running");
+  const involvementApiUrl =
+    "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eT8XH25HH0nbRLIKTkDi";
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    const raw = JSON.stringify({
+      item_id: id,
+      username: user,
+      comment: comment
+    });
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+    fetch(`${involvementApiUrl}/comments`,
+      requestOptions
+    )
+};
+// get the form data
+const getFormData =()=>{
+  console.log('getformData funtion')
+  const userInput = document.querySelector(".user");
+  const userComments = document.querySelector(".userComment");
+  const form = document.querySelector(".form");
+  const user = userInput.value;
+  const comment = userComments.value;
+  const itemId = form.id;
+  sendComment(itemId,user,comment);
+  }
+const btnComment = document.querySelector(".btn-comment");
+btnComment.addEventListener("click", getFormData);
+// sendComment('7','Ali','Hello');
