@@ -5,6 +5,7 @@ export function updateitemscount() {
   navli.innerHTML = `Pokémon ( ${counter.length} )`;
 }
 
+
 export async function newLike(index) {
   const appid = 'eT8XH25HH0nbRLIKTkDi'; // Replace with your previous app ID
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appid}/likes`;
