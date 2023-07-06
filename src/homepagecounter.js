@@ -58,4 +58,3 @@ export async function LikeCounter(index) {
     console.error('Error:', error);
   }
 }
-
