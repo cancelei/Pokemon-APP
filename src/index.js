@@ -1,6 +1,6 @@
 import './style.css';
 import { createCard, populateCard } from './cardUtils.js';
-import { updateitemscount } from './homepagecounter.js';
+import { updateitemscount, LikeCounter } from './homepagecounter.js';
 import './popup.js';
 
 const main = document.querySelector('.main');
