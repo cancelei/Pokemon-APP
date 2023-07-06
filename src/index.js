@@ -1,6 +1,6 @@
 import './style.css';
 import { createCard, populateCard } from './cardUtils.js';
-import { updateitemscount } from './homepagecounter.js';
+import { updateitemscount, LikeCounter } from './homepagecounter.js';
 import './popup.js';
 
 const main = document.querySelector('.main');
@@ -23,3 +23,5 @@ for (let i = 1; i <= MAXCARDS; i += 1) {
 
 Promise.all(fetchPromises)
   .then(() => {});
+
+LikeCounter(3);
