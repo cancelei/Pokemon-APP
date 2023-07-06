@@ -1,11 +1,10 @@
-export default function updateitemscount() {
+export function updateitemscount() {
   const counter = document.body.querySelectorAll('.card');
 
   const navli = document.getElementById('counter');
 
   navli.innerHTML = `Pokémon ( ${counter.length} )`;
 }
-
 
 export async function newLike(index) {
   const appid = 'eT8XH25HH0nbRLIKTkDi'; // Replace with your previous app ID
@@ -27,12 +26,12 @@ export async function newLike(index) {
     const response = await fetch(url, requestOptions);
     if (response.ok) {
       return response.text(); // Return the response text
-    } else {
-      throw new Error('Request failed with status ' + response.status);
     }
+    throw new Error(`Request failed with status ${response.status}`);
   } catch (error) {
     console.error('Error:', error);
   }
+  return null; // Return null if the request failed
 }
 
 export async function LikeCounter(index) {
@@ -54,10 +53,9 @@ export async function LikeCounter(index) {
         return likes; // Return the updated like count
       }
     } else {
-      throw new Error('Request failed with status ' + response.status);
+      throw new Error(`Request failed with status ${response.status}`);
     }
   } catch (error) {
     console.error('Error:', error);
   }
 }
-

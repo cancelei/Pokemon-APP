@@ -24,12 +24,12 @@ export function createCard(index) {
   titleElement.className = 'cardtitle';
   titleParent.appendChild(titleElement);
 
-  const likeButton = document.createElement('p');
-  likeButton.className = 'likebutton';
-  likeButton.addEventListener('click', () => {
-    newLike(index);
-  });
-  titleParent.appendChild(likeButton);
+  // const likeButton = document.createElement('p');
+  // likeButton.className = 'likebutton';
+  // likeButton.addEventListener('click', () => {
+  //   newLike(index);
+  // });
+  // titleParent.appendChild(likeButton);
 
   const likeButtonCounter = document.createElement('p');
   likeButtonCounter.className = 'likebuttoncounter';
