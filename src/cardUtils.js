@@ -2,6 +2,7 @@ import diplayCard from './popup.js';
 import { newLike, LikeCounter } from './homepagecounter.js';
 
 export function createCard(index) {
+  LikeCounter(index);
   const card = document.createElement('div');
   card.className = 'card';
 

@@ -23,5 +23,3 @@ for (let i = 1; i <= MAXCARDS; i += 1) {
 
 Promise.all(fetchPromises)
   .then(() => {});
-
-LikeCounter(3);
