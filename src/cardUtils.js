@@ -33,7 +33,8 @@ export function createCard(index) {
 
   const likeButtonCounter = document.createElement('p');
   likeButtonCounter.className = 'likebuttoncounter';
-
+  likeButtonCounter.id = `likeCounter-${index}`;
+  likeButtonCounter.dataset.index = index;
   cardInfo.appendChild(likeButtonCounter);
 
   const likeButton = document.createElement('p');
