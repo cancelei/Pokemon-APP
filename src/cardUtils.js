@@ -1,7 +1,8 @@
-import diplayCard from './popup';
-// import {diplayComments} from './popup';
+import diplayCard from './popup.js';
+import { newLike, LikeCounter } from './homepagecounter.js';
 
 export function createCard(index) {
+  LikeCounter(index);
   const card = document.createElement('div');
   card.className = 'card';
 
@@ -23,14 +24,24 @@ export function createCard(index) {
   titleElement.className = 'cardtitle';
   titleParent.appendChild(titleElement);
 
-  const likeButton = document.createElement('p');
-  likeButton.className = 'likebutton';
-  titleParent.appendChild(likeButton);
-
   const likeButtonCounter = document.createElement('p');
   likeButtonCounter.className = 'likebuttoncounter';
-  likeButtonCounter.textContent = '(Like Counter)';
+  likeButtonCounter.id = `likeCounter-${index}`;
+  likeButtonCounter.dataset.index = index;
   cardInfo.appendChild(likeButtonCounter);
+
+  const likeButton = document.createElement('p');
+  likeButton.className = 'likebutton';
+  likeButton.addEventListener('click', () => {
+    newLike(index)
+      .then(() => {
+        LikeCounter(index);
+      })
+      .catch((error) => {
+        console.error('Error Calling Like Counter after Liking Pokemon:', error);
+      });
+  });
+  titleParent.appendChild(likeButton);
 
   const modal = document.querySelector('#myModal');
 
