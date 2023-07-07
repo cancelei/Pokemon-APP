@@ -1,14 +1,26 @@
-import _ from 'lodash';
 import './style.css';
+import { createCard, populateCard } from './cardUtils.js';
 
-function component() {
-  const element = document.createElement('div');
+import { updateitemscount } from './homepagecounter.js';
+import './popup.js';
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const main = document.querySelector('.main');
+const fetchPromises = [];
+const MAXCARDS = 9;
 
-  return element;
+for (let i = 1; i <= MAXCARDS; i += 1) {
+  const newCard = createCard(i);
+  main.appendChild(newCard);
+
+  const fetchPromise = fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+    .then((response) => response.json())
+    .then((data) => {
+      populateCard(newCard, data);
+      updateitemscount();
+    });
+
+  fetchPromises.push(fetchPromise);
 }
 
-document.body.appendChild(component());
+Promise.all(fetchPromises)
+  .then(() => {});
